@@ -30,7 +30,7 @@ public class StudentController {
 
     }
 
-//    this methode is a little bit same as the above one but this request Student object when
+//    this methode is a little bit same as the above one but this request (you must pass body in the request) Student object when
 //    the request sent to the endpoint
 //    NB: post request can have @RequestBody because it can receive body to save in Database
     @PostMapping("/student/save-request")
@@ -47,7 +47,7 @@ public class StudentController {
         return repository.findByEmail(email);
     }
 
-//  PatchMapping used to patch the present data like update when the endpoint /student/update requested should pass values
+//  PatchMapping used to patch the present data like update when the endpoint "/student/update" requested should pass values
 //  first one is id used to search student by id and the second one is email used to update the present email
     @PatchMapping("/student/update")
     public Student upDateStudent(@RequestParam("id") long id, @RequestParam("new_email") String email){
@@ -62,6 +62,7 @@ public class StudentController {
     }
 
 //  The method use get request once the below endpoint is requested, and it's going to find all students with particular domain
+//    here domain represent email domain like (@gmail.com, @hotmail.com ...)
     @GetMapping("/students/find-by-domain")
     public List<Student> findByEmailDomain(@RequestParam("domain") String domain){
         return repository.findByDomain(domain);

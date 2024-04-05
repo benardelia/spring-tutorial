@@ -22,7 +22,7 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 //    Student class(ie are properties of Student class)
     Student findByPhone(String phone);
     Student findByName(String name);
-    Student findByGrade(String grade);
+    List<Student> findByGrade(String grade);
 
 //  using custom query in spring boot
 //  the method below is unlike the other ones because it uses custom query, the other one utilize
